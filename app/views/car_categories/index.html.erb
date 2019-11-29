@@ -1,0 +1,11 @@
+<h1> Aqui ficam as categorias de carros </h1>
+
+<%= @carcategories.each do |c| %>
+  <ul>
+    <p><%= c.name %></p>
+  </ul>
+
+
+<% end %>
+
+<p><%= link_to 'Voltar', root_path %></p>
