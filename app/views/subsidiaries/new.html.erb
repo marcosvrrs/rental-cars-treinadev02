@@ -1,0 +1,13 @@
+<%= form_with model: @subsidiary, local: true do |subsidiary| %>
+  <%= subsidiary.text_field :name %>
+  <%= subsidiary.label :name , 'Nome' %>
+  <%= subsidiary.text_field :cnpj %>
+  <%= subsidiary.label :cnpj , 'CNPJ' %>
+  <%= subsidiary.text_field :adress %>
+  <%= subsidiary.label :adress , 'Endereço' %>
+
+  <%= subsidiary.submit 'Enviar'  %>
+
+
+
+<% end %>

@@ -1,10 +1,12 @@
-<h1>Aqui ficam as filiais</h1>
+<h1> Lista de filiais</h1>
 
-<%= @subsidiaries.each do |s| %>
+<% @subsidiaries.each do |s| %>
   <ul>
-    <li> <%= s.name %></li>
+    <li> <%= link_to s.name , subsidiary_path(s) %></li>
+    <li> <%= link_to 'Editar' , edit_subsidiary_path(s) %></li>
   </ul>
 
 <% end %>
 
+<p> <%= link_to 'Cadastrar nova Filial', new_subsidiary_path %></p>
 <p> <%= link_to 'Voltar' , root_path %> </p>

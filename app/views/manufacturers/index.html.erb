@@ -1,4 +1,5 @@
-<%= @manufacturers.each do |m|  %>
+<h1> Lista de fabricantes</h1>
+<% @manufacturers.each do |m|  %>
 <li> <%= link_to m.name, manufacturer_path(m.id) %>  </li>
 
 <% end %>
