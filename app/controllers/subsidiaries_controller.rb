@@ -29,9 +29,10 @@ end
 
 def update
   @subsidiary = Subsidiary.find(params[:id])
-  if @subsidiary.update(params.require(:subsidiary).permit(:name, :cnpj, :adress ))
-    redirect_to subsidiaries_path
-  end
+  @subsidiary.update(params.require(:subsidiary).permit(:name, :cnpj, :adress ))
+  flash[:notice] = 'Atualizado com sucesso!'
+  redirect_to subsidiaries_path
+  
 
 end
 

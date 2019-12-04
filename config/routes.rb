@@ -5,5 +5,6 @@ root to:  'home#index'
 resources :manufacturers
 resources :subsidiaries
 resources :car_categories
+resources :car_models
 
 end

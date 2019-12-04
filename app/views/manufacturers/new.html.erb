@@ -1,3 +1,13 @@
+<h1> Registrar novo fabricante </h1>
+
+<% if @manufacturer.errors.any? %>
+
+  <p> <%= notice %>  </p>
+
+<% end %>
+
+
+
 <%= form_with model: @manufacturer, class: "nifty_form" do |f| %>
   <%= f.text_field :name %>
   <%= f.label :name , "Nome" %>
