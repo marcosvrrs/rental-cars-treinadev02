@@ -1,0 +1,31 @@
+<h1> Nova categoria de carro</h1>
+
+<%= form_with(model: @car_categories, local: true ) do |f| %>
+
+<p>
+<%= f.label :name, 'Nome ' %>
+<%= f.text_field :name %>
+</p>
+
+<p>
+<%= f.label :daily_rate, 'Diária' %>
+<%= f.text_field :daily_rate %>
+</p>
+
+<p>
+<%= f.label :car_insurance, 'Seguro' %>
+<%= f.text_field :car_insurance %>
+
+</p>
+
+<p>
+<%= f.label :third_party_insurance , 'Seguro de terceiros' %>
+<%= f.text_field :third_party_insurance %>
+
+</p>
+
+<%= f.submit 'Enviar' %>
+
+<h2> <%= link_to 'Voltar as categorias' , car_categories_path %></h2>
+
+<% end %>

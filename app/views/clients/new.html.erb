@@ -1,0 +1,26 @@
+<h1>Registrar um cliente</h1>
+
+
+<%= form_with(model: @client, local: true ) do |f| %>
+
+<p>
+<%= f.label :name, 'Nome ' %>
+<%= f.text_field :name %>
+</p>
+
+<p>
+<%= f.label :document, 'CPF' %>
+<%= f.text_field :document %>
+</p>
+
+<p>
+<%= f.label :email, 'Email' %>
+<%= f.text_field :email %>
+
+</p>
+
+<%= f.submit 'Enviar' %>
+
+<h2> <%= link_to 'Voltar a lista de clientes' , clients_path %></h2>
+
+<% end %>

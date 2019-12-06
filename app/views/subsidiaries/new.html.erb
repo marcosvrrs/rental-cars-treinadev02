@@ -1,13 +1,36 @@
-<%= form_with model: @subsidiary, local: true do |subsidiary| %>
-  <%= subsidiary.text_field :name %>
-  <%= subsidiary.label :name , 'Nome' %>
-  <%= subsidiary.text_field :cnpj %>
-  <%= subsidiary.label :cnpj , 'CNPJ' %>
-  <%= subsidiary.text_field :adress %>
-  <%= subsidiary.label :adress , 'Endereço' %>
+<%= form_with model: @subsidiary, local: true do |form| %>
 
-  <%= subsidiary.submit 'Enviar'  %>
-
-
-
+<% if @subsidiary.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@subsidiary.errors.count, "erro") %> Filial
+      proibida de ser salva:
+    </h2>
+    <ul>
+      <% @subsidiary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
+  <p>
+  <%= form.label :name , 'Nome' %>
+  <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :cnpj , 'CNPJ' %>
+  <%= form.text_field :cnpj %>
+  </p>
+
+  <p>
+  <%= form.label :adress , 'Endereço' %>
+  <%= form.text_field :adress %>
+  </p>
+
+
+  <%= form.submit 'Enviar'  %>
+<% end %>
+
+<h2><%= link_to 'Voltar' , subsidiaries_path %></h2>

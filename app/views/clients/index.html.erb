@@ -1,0 +1,19 @@
+<h1>Lista de Clientes</h1>
+
+<% if @clients.none? %>
+    <p> Nenhum cliente cadastrado na base de dados </p>
+<% end %>
+
+<% @clients.each do |c| %>
+
+
+  <h2>Nome: <%= c.name %> <%= link_to 'Editar' , edit_client_path(c) %></h2>
+  <p>CPF: <%= c.document %></p>
+  <p>Email:  <%= c.email  %></p>
+
+
+
+<% end %>
+
+<h3><%= link_to 'Cadastrar novo cliente', new_client_path %></h3>
+<p><%= link_to 'Voltar', root_path %></p>

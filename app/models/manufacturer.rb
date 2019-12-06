@@ -1,8 +1,5 @@
 class Manufacturer < ApplicationRecord
-
-has_many :car_models
-validates :name, presence: { message: 'Falta preencher o nome'}
-validates :name, uniqueness: { message: 'Nome já está em uso'}
-
-
+  validates :name, presence: true , uniqueness: true
+  validates :name, length: {minimum: 3}
+  has_many :car_models
 end

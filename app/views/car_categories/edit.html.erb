@@ -1,0 +1,43 @@
+<%= form_with(model: @car_categories, local: true) do |form| %>
+
+  <% if @car_categories.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@car_categories.errors.count, "erro") %> Categoria de carro
+        proibido de ser salvo:
+      </h2>
+      <ul>
+        <% @car_categories.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name , 'Nome'%><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :daily_rate , 'Diária'%><br>
+    <%= form.text_field :daily_rate %>
+  </p>
+
+  <p>
+    <%= form.label :car_insurance , 'Seguro'%><br>
+    <%= form.text_field :car_insurance %>
+  </p>
+
+  <p>
+    <%= form.label :third_party_insurance , 'Seguro de terceiros'%><br>
+    <%= form.text_field :third_party_insurance %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Voltar', car_categories_path %>

@@ -1,1 +1,15 @@
-<h1> </h1>
+<h1>Modelos de Carros </h1>
+
+<% if @car_models.none? %>
+    <p> Nenhum modelo de carro cadastrado na base de dados </p>
+<% end %>
+
+<% @car_models.each do |c| %>
+
+  <%= link_to c.name, car_model_path(c) %>
+
+
+<% end %>
+
+<h3><%= link_to 'Cadastrar novo modelo de carro', new_car_model_path %></h3>
+<p><%= link_to 'Voltar', root_path %></p>

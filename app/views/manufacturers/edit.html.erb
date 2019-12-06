@@ -1,10 +1,31 @@
-<%= form_with model: @manufacturer, local: true do |manufacturer| %>
-  <%= manufacturer.text_field :name %>
-  <%= manufacturer.label :name , 'Nome' %>
-  
+<h1>Editar um fabricante </h1>
 
-  <%= manufacturer.submit 'Enviar'  %>
+<%= form_with(model: @manufacturer, local: true) do |form| %>
+
+  <% if @manufacturer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@manufacturer.errors.count, "erro!") %> Fabricante
+        proibido de ser salvo:
+      </h2>
+      <ul>
+        <% @manufacturer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name , 'Nome'%><br>
+    <%= form.text_field :name %>
+  </p>
 
 
+  <p>
+    <%= form.submit 'Salvar' %>
+  </p>
 
 <% end %>
+
+<%= link_to 'Voltar', manufacturers_path %>

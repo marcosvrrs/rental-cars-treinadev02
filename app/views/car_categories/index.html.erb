@@ -1,11 +1,16 @@
 <h1> Categorias de carros </h1>
 
-<% @carcategories.each do |c| %>
-  <ul>
-    <p><%= c.name %></p>
-  </ul>
+
+<% @car_categories.each do |c| %>
+
+
+  <h2>Nome: <%= c.name %> <%= link_to 'Editar' , edit_car_category_path(c) %></h2>
+  <p>Diária: <%= c.daily_rate %></p>
+  <p>Seguro:  <%= c.car_insurance %></p>
+  <p>Seguro de terceiros:  <%= c.third_party_insurance %></p>
 
 
 <% end %>
 
+<h3><%= link_to 'Cadastrar categoria de carro', new_car_category_path %></h3>
 <p><%= link_to 'Voltar', root_path %></p>

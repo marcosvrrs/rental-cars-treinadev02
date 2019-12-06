@@ -1,3 +1,13 @@
-<h1><%= @car_model.name %> </h1>
 
-<h2> Modelos Cadastrados </h2> 
+
+<h1><%= @car_model.name %></h1>
+<dl>
+<dt>Ano:</dt>
+  <dd><%= @car_model.year %></dd>
+<dt>Fabricante:</dt>
+<dd><%= @car_model.manufacturer.name%></dd>
+<dt>Categoria:</dt>
+<dd> <%=@car_model.car_category.name%> </dd>
+</dl>
+
+<p> <%= link_to 'Voltar' , car_models_path %> </p>

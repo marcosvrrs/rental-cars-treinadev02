@@ -1,44 +1,33 @@
-<h1>  Insira o novo modelo de carro  </h1>
+<h1>Registrar um novo modelo de carro</h1>
 
 <%= form_for @car_model do |f| %>
+  <p>
+    <%= f.label :name, 'Nome'%>
+    <%= f.text_field :name%>
+  </p>
+  <p>
+    <%= f.label :motorization, 'Motorização'%>
+    <%= f.text_field :motorization%>
+  </p>
+  <p>
+    <%= f.label :year, 'Ano'%>
+    <%= f.number_field :year%>
+  </p>
+  <p>
+    <%= f.label :fuel_type, 'Combustível'%>
+    <%= f.text_field :fuel_type%>
+  </p>
+  <div>
+    <%= f.label :manufacturer_id, 'Fabricante'%>
+    <%= f.collection_select(:manufacturer_id, @manufacturers, :id, :name)%>
+  </div>
+  <div>
+    <%= f.label :car_category_id, 'Categoria de Carro'%>
+    <%= f.collection_select(:car_category_id, @car_categories, :id, :name)%>
+  </div>
+  <br>
+<%= f.submit 'Enviar'%>
 
-<p>
-<%= f.label :name, 'Nome' %>
-<%= f.text_field :name %>
-</p>
-
-<p> 
-
-
-<%= f.label :motorization, 'Motorização' %>
-<%= f.text_field :motorization %>
-
-</p>
-<p>
-
-<%= f.label :year, 'Ano' %>
-<%= f.number_field :year %>
-
-</p>
-
-<p>
-
-<%= f.label :fuel_type, 'Combustível' %>
-<%= f.text_field :fuel_type %>
-
-</p>
-
-<p>
-<%= f.label :manufacturer_id , 'Fabricante' %>
-<%= f.collection_select(:manufacturer_id, @manufacturers, :id, :name) %>
-</p>
-
-<div>
-<%= f.label :car_category_id , 'Categoria' %>
-<%= f.collection_select(:car_category_id, @manufacturers, :id, :name) %>
-</div>
-
-<%= f.submit 'Enviar' %>
-
+<h2> <%= link_to 'Voltar aos modelos' , car_models_path %></h2>
 
 <% end %>
