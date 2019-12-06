@@ -1,5 +1,9 @@
 class ManufacturersController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :authorize_admin
+  before_action :set_manufacturer, only: [:show, :edit, :update]
+
   def index
     @manufacturers = Manufacturer.all
   end
@@ -43,6 +47,18 @@ class ManufacturersController < ApplicationController
     end
 
   end
+
+
+private
+
+def authorize_admin
+
+  unless current_user.admin?
+    flash[:notice] = 'Você não tem autorização para realizar esta ação'
+    redirect_to root_path
+  end    
+end   
+#verificar se esses ends fecharam correto, unless precisa fechar o end?
 
 
 
