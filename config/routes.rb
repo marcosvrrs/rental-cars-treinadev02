@@ -9,6 +9,9 @@ resources :car_categories
 resources :clients
 resources :car_models
 resources :cars
+resources :rentals do 
+  get 'search', on: :collection
+end   
 
 
 end

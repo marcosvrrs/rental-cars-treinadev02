@@ -1,5 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Client, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Client do
+
+  # Primeiro teste unitario feito por nós. 
+  describe '.description' do 
+    it 'must return name with document' do  
+
+      client = Client.new(name: 'Fulano Sicrano', email: 'fulano@test.com',
+                          document: '743.341.870-99')
+      expect(client.description).to eq 'Fulano Sicrano - 743.341.870-99'
+    end   
+  end   
+  
 end
