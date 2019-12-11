@@ -11,6 +11,9 @@ resources :car_models
 resources :cars
 resources :rentals do 
   get 'search', on: :collection
+  # get 'review' , poderia ser um form para revisar a locação
+  post 'start', on: :member  
+  # post pois é do botão para iniciar a locação
 end   
 
 

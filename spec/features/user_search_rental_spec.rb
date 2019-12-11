@@ -23,7 +23,7 @@ feature 'user search rental ' do
     click_on 'Buscar'
 
 
-    expect(page).to have_content(rental.reservation_code)
+    expect(page).to have_content(rentals.reservation_code)
     expect(page).not_to have_content(other_rental.reservation_code)
   
   end   
