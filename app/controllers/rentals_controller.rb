@@ -37,6 +37,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(params.require(:rental).permit(:start_date, :end_date,
                                                         :client_id,
                                                         :car_category_id))
+    @rental.subsidiary = current_user.subsidiary                                                   
     if @rental.save
       redirect_to @rental , notice: 'Locação agendada com sucesso'
     else        

@@ -17,6 +17,21 @@ class Rental < ApplicationRecord
     end   
   end 
 
+  def cars_available?
 
+
+    #carros disponíveis
+    car_models = CarModel.where(car_category: car_category)
+
+    Car.where(car_model: car_models).count > 0 
+    
+
+    #locações agendadas
+    total_rentals = Rental.where(car_category: car_category, subsidiary: subsidiary)
+                          .where("start_date < ? AND end_date > ?", start_date, start_date)
+                          .count
+    (total_cars - total_rentals) > 0    
+
+  end   
 
 end
